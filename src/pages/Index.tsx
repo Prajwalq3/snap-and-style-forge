@@ -5,17 +5,25 @@ import VisionSection from "@/components/VisionSection";
 import SpeakersSection from "@/components/SpeakersSection";
 import SponsorsSection from "@/components/SponsorsSection";
 import ContactSection from "@/components/ContactSection";
+import NavigationOverlay from "@/components/NavigationOverlay";
 
 const Index = () => {
   return (
     <main className="overflow-x-hidden">
+      <NavigationOverlay />
       <HeroSection />
       <TaglineSection />
-      <AboutSection />
+      <section id="events">
+        <AboutSection />
+      </section>
       <VisionSection />
       <SpeakersSection />
-      <SponsorsSection />
-      <ContactSection />
+      <section id="glimpse">
+        <SponsorsSection />
+      </section>
+      <section id="team">
+        <ContactSection />
+      </section>
     </main>
   );
 };

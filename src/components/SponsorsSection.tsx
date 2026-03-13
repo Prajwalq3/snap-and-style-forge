@@ -1,9 +1,24 @@
 import sponsorsBg from "@/assets/sponsors-bg.jpg";
+import sponsorNalco from "@/assets/sponsor-nalco.png";
+import sponsorBip from "@/assets/sponsor-bip.png";
+import sponsorAbs from "@/assets/sponsor-abs.png";
+import sponsorJindal from "@/assets/sponsor-jindal.png";
+import sponsorStl from "@/assets/sponsor-stl.png";
+import sponsorStartupOdisha from "@/assets/sponsor-startup-odisha.png";
+import sponsorOptcl from "@/assets/sponsor-optcl.png";
+import sponsorTexiant from "@/assets/sponsor-texiant.png";
+import sponsorMcl from "@/assets/sponsor-mcl.png";
 
 const sponsors = [
-  "NALCO", "Business Intelligence Professionals Pvt. Ltd.", "AB's",
-  "Jindal Steel & Power", "STL", "Startup Odisha",
-  "OPTCL", "Texiant Software", "MCL",
+  { name: "NALCO", logo: sponsorNalco },
+  { name: "Business Intelligence Professionals Pvt. Ltd.", logo: sponsorBip },
+  { name: "AB's Absolute Barbecues", logo: sponsorAbs },
+  { name: "Jindal Steel & Power", logo: sponsorJindal },
+  { name: "STL", logo: sponsorStl },
+  { name: "Startup Odisha", logo: sponsorStartupOdisha },
+  { name: "OPTCL", logo: sponsorOptcl },
+  { name: "Texiant Software", logo: sponsorTexiant },
+  { name: "MCL", logo: sponsorMcl },
 ];
 
 const SponsorsSection = () => {
@@ -24,14 +39,16 @@ const SponsorsSection = () => {
         </h2>
 
         <div className="grid grid-cols-3 gap-6 max-w-5xl mx-auto">
-          {sponsors.map((name) => (
+          {sponsors.map((sponsor) => (
             <div
-              key={name}
-              className="bg-card/90 backdrop-blur rounded-xl p-6 flex items-center justify-center min-h-[100px] shadow-lg"
+              key={sponsor.name}
+              className="bg-card/90 backdrop-blur rounded-xl p-4 flex items-center justify-center min-h-[120px] shadow-lg hover:scale-105 transition-transform duration-300"
             >
-              <span className="text-card-foreground font-bold text-sm md:text-base text-center">
-                {name}
-              </span>
+              <img
+                src={sponsor.logo}
+                alt={sponsor.name}
+                className="max-h-20 max-w-full object-contain"
+              />
             </div>
           ))}
         </div>
