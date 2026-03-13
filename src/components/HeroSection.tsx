@@ -1,24 +1,43 @@
+import { useEffect, useState, useRef } from "react";
 import heroFigure from "@/assets/hero-figure.png";
+import heroFigureCrossed from "@/assets/hero-figure-crossed.png";
 
 const HeroSection = () => {
+  const [scrolled, setScrolled] = useState(false);
+  const sectionRef = useRef<HTMLElement>(null);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 200);
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   return (
-    <section className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden bg-surface-dark">
-      {/* Background image */}
+    <section ref={sectionRef} id="home" className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden bg-surface-dark">
+      {/* Background image - transitions between poses */}
       <div
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-60"
-        style={{ backgroundImage: `url(${heroFigure})` }}
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat transition-opacity duration-1000"
+        style={{
+          backgroundImage: `url(${heroFigure})`,
+          opacity: scrolled ? 0 : 0.6,
+        }}
+      />
+      <div
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat transition-opacity duration-1000"
+        style={{
+          backgroundImage: `url(${heroFigureCrossed})`,
+          opacity: scrolled ? 0.6 : 0,
+        }}
       />
 
       {/* Spotlight overlay */}
       <div className="absolute inset-0 bg-gradient-to-b from-background/30 via-transparent to-background" />
 
-      {/* Top bar with logos */}
+      {/* Top bar with logos (hamburger removed - now in NavigationOverlay) */}
       <div className="absolute top-0 left-0 right-0 z-10 flex items-center justify-between px-6 py-4">
-        <button className="flex flex-col gap-1.5">
-          <span className="block w-8 h-0.5 bg-foreground" />
-          <span className="block w-8 h-0.5 bg-foreground" />
-          <span className="block w-6 h-0.5 bg-foreground" />
-        </button>
+        <div className="w-12" /> {/* spacer for hamburger */}
 
         <div className="flex items-center gap-8">
           <span className="text-xs text-muted-foreground font-mono">Entrepreneurship Development Cell</span>
