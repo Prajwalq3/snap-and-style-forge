@@ -47,6 +47,9 @@ export default {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
+        "surface-dark": "hsl(var(--surface-dark))",
+        "surface-noise": "hsl(var(--surface-noise))",
+        "surface-gray": "hsl(var(--surface-gray))",
         sidebar: {
           DEFAULT: "hsl(var(--sidebar-background))",
           foreground: "hsl(var(--sidebar-foreground))",
@@ -57,6 +60,10 @@ export default {
           border: "hsl(var(--sidebar-border))",
           ring: "hsl(var(--sidebar-ring))",
         },
+      },
+      fontFamily: {
+        display: ['"Special Elite"', 'cursive'],
+        mono: ['"Courier Prime"', 'monospace'],
       },
       borderRadius: {
         lg: "var(--radius)",
