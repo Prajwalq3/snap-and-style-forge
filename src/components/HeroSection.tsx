@@ -35,20 +35,20 @@ const HeroSection = () => {
       {/* Spotlight overlay */}
       <div className="absolute inset-0 bg-gradient-to-b from-background/30 via-transparent to-background" />
 
-      {/* Top bar with logos (hamburger removed - now in NavigationOverlay) */}
-      <div className="absolute top-0 left-0 right-0 z-10 flex items-center justify-between px-6 py-4">
+      {/* Sticky header */}
+      <header className="fixed top-0 left-0 right-0 z-40 flex items-center justify-between px-6 py-5 bg-background/80 backdrop-blur-md border-b border-border/30">
         <div className="w-12" /> {/* spacer for hamburger */}
 
         <div className="flex items-center gap-8">
-          <span className="text-xs text-muted-foreground font-mono">Entrepreneurship Development Cell</span>
-          <span className="text-xs text-muted-foreground font-mono">Institution's Innovation Council</span>
+          <span className="text-sm text-muted-foreground font-mono">Entrepreneurship Development Cell</span>
+          <span className="text-sm text-muted-foreground font-mono">Institution's Innovation Council</span>
         </div>
 
         <div className="flex items-center gap-8">
-          <span className="text-xs text-muted-foreground font-mono">25 Years Silicon Silver Jubilee</span>
-          <span className="text-lg font-bold text-foreground tracking-wider">SiliconTech</span>
+          <span className="text-sm text-muted-foreground font-mono">25 Years Silicon Silver Jubilee</span>
+          <span className="text-xl font-bold text-foreground tracking-wider">SiliconTech</span>
         </div>
-      </div>
+      </header>
 
       {/* Main title */}
       <div className="relative z-10 text-center">

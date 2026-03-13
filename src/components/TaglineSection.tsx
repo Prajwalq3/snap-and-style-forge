@@ -1,14 +1,6 @@
-import heroFigure from "@/assets/hero-figure.png";
-
 const TaglineSection = () => {
   return (
     <section className="relative min-h-[60vh] flex items-center justify-between overflow-hidden bg-surface-dark">
-      <div
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-40"
-        style={{ backgroundImage: `url(${heroFigure})` }}
-      />
-      <div className="absolute inset-0 bg-background/50" />
-
       <div className="relative z-10 w-full flex items-center justify-between px-8 md:px-20">
         <div className="text-left">
           <h2 className="text-4xl md:text-6xl font-black text-foreground tracking-wider">
