@@ -26,7 +26,6 @@ const Index = () => {
       <section id="team">
         <ContactSection />
       </section>
-      <FAQSection />
       <FooterSection />
     </main>
   );
