@@ -5,6 +5,8 @@ import VisionSection from "@/components/VisionSection";
 import SpeakersSection from "@/components/SpeakersSection";
 import SponsorsSection from "@/components/SponsorsSection";
 import ContactSection from "@/components/ContactSection";
+import FAQSection from "@/components/FAQSection";
+import FooterSection from "@/components/FooterSection";
 import NavigationOverlay from "@/components/NavigationOverlay";
 
 const Index = () => {
@@ -24,6 +26,8 @@ const Index = () => {
       <section id="team">
         <ContactSection />
       </section>
+      <FAQSection />
+      <FooterSection />
     </main>
   );
 };

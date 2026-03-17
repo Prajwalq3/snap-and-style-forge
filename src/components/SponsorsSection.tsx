@@ -1,3 +1,4 @@
+import { useEffect, useRef, useState } from "react";
 import sponsorsBg from "@/assets/sponsors-bg.jpg";
 import sponsorNalco from "@/assets/sponsor-nalco.png";
 import sponsorBip from "@/assets/sponsor-bip.png";
@@ -22,8 +23,30 @@ const sponsors = [
 ];
 
 const SponsorsSection = () => {
+  const sectionRef = useRef<HTMLElement>(null);
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setIsVisible(true);
+          }
+        });
+      },
+      { threshold: 0.3 }
+    );
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
+
+    return () => observer.disconnect();
+  }, []);
+
   return (
-    <section className="relative py-20 px-6 md:px-20 overflow-hidden">
+    <section ref={sectionRef} className="relative py-20 px-6 md:px-20 overflow-hidden">
       <div
         className="absolute inset-0 bg-cover bg-center opacity-80"
         style={{ backgroundImage: `url(${sponsorsBg})` }}
@@ -39,10 +62,15 @@ const SponsorsSection = () => {
         </h2>
 
         <div className="grid grid-cols-3 gap-6 max-w-5xl mx-auto">
-          {sponsors.map((sponsor) => (
+          {sponsors.map((sponsor, i) => (
             <div
               key={sponsor.name}
-              className="bg-card/90 backdrop-blur rounded-xl p-4 flex items-center justify-center min-h-[120px] shadow-lg hover:scale-105 transition-transform duration-300"
+              className={`bg-card/90 backdrop-blur rounded-xl p-4 flex items-center justify-center min-h-[120px] shadow-lg hover:scale-105 transition-all duration-700 ${
+                isVisible
+                  ? "opacity-100 blur-0 translate-y-0"
+                  : "opacity-0 blur-md translate-y-8"
+              }`}
+              style={{ transitionDelay: `${i * 100}ms` }}
             >
               <img
                 src={sponsor.logo}
