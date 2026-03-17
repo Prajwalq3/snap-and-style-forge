@@ -1,52 +1,73 @@
 import { useEffect, useState, useRef } from "react";
-import heroFigure from "@/assets/hero-figure.png";
-import heroFigureCrossed from "@/assets/hero-figure-crossed.png";
+import heroFigureDown from "@/assets/hero-figure-down.png";
+import heroFigureUp from "@/assets/hero-figure-up.png";
+import logoEdc from "@/assets/logo-edc.png";
+import logoIic from "@/assets/logo-iic.png";
+import logo25 from "@/assets/logo-25years.png";
 
 const HeroSection = () => {
-  const [scrolled, setScrolled] = useState(false);
+  const [scrollY, setScrollY] = useState(0);
+  const [headerVisible, setHeaderVisible] = useState(true);
   const sectionRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
+    let lastScrollY = 0;
     const handleScroll = () => {
-      setScrolled(window.scrollY > 200);
+      const currentY = window.scrollY;
+      setScrollY(currentY);
+      // Hide header when scrolling down past 100px
+      setHeaderVisible(currentY < 100);
+      lastScrollY = currentY;
     };
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  const scrolled = scrollY > 200;
+
   return (
     <section ref={sectionRef} id="home" className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden bg-surface-dark">
-      {/* Background image - transitions between poses */}
+      {/* Background figure - looking down reading paper */}
       <div
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat transition-opacity duration-1000"
+        className="absolute inset-0 bg-contain bg-center bg-no-repeat transition-opacity duration-1000"
         style={{
-          backgroundImage: `url(${heroFigure})`,
-          opacity: scrolled ? 0 : 0.6,
+          backgroundImage: `url(${heroFigureDown})`,
+          opacity: scrolled ? 0 : 0.7,
         }}
       />
+      {/* Background figure - looking up with big eyes */}
       <div
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat transition-opacity duration-1000"
+        className="absolute inset-0 bg-contain bg-center bg-no-repeat transition-opacity duration-1000"
         style={{
-          backgroundImage: `url(${heroFigureCrossed})`,
-          opacity: scrolled ? 0.6 : 0,
+          backgroundImage: `url(${heroFigureUp})`,
+          opacity: scrolled ? 0.7 : 0,
         }}
       />
 
       {/* Spotlight overlay */}
-      <div className="absolute inset-0 bg-gradient-to-b from-background/30 via-transparent to-background" />
+      <div className="absolute inset-0 bg-gradient-to-b from-background/40 via-transparent to-background" />
 
-      {/* Sticky header */}
-      <header className="fixed top-0 left-0 right-0 z-40 flex items-center justify-between px-6 py-5 bg-background/80 backdrop-blur-md border-b border-border/30">
-        <div className="w-12" /> {/* spacer for hamburger */}
-
-        <div className="flex items-center gap-8">
-          <span className="text-sm text-muted-foreground font-mono">Entrepreneurship Development Cell</span>
-          <span className="text-sm text-muted-foreground font-mono">Institution's Innovation Council</span>
+      {/* Sticky header with logos - disappears on scroll */}
+      <header
+        className={`fixed top-0 left-0 right-0 z-40 flex items-center justify-between px-4 md:px-8 py-3 bg-background/90 backdrop-blur-md border-b border-border/20 transition-all duration-500 ${
+          headerVisible ? "translate-y-0 opacity-100" : "-translate-y-full opacity-0"
+        }`}
+      >
+        {/* Left: Hamburger spacer + EDC logo */}
+        <div className="flex items-center gap-4">
+          <div className="w-10" /> {/* spacer for hamburger */}
+          <img src={logoEdc} alt="Entrepreneurship Development Cell" className="h-10 md:h-12 object-contain" />
         </div>
 
-        <div className="flex items-center gap-8">
-          <span className="text-sm text-muted-foreground font-mono">25 Years Silicon Silver Jubilee</span>
-          <span className="text-xl font-bold text-foreground tracking-wider">SiliconTech</span>
+        {/* Center: IIC logo */}
+        <div className="flex items-center">
+          <img src={logoIic} alt="Institution's Innovation Council" className="h-10 md:h-14 object-contain" />
+        </div>
+
+        {/* Right: 25 Years + SiliconTech */}
+        <div className="flex items-center gap-4">
+          <img src={logo25} alt="25 Years Silicon Silver Jubilee" className="h-10 md:h-12 object-contain" />
+          <span className="text-lg md:text-2xl font-bold text-foreground tracking-wider">SiliconTech</span>
         </div>
       </header>
 
@@ -62,11 +83,10 @@ const HeroSection = () => {
         </p>
 
         <h1 className="text-7xl md:text-[10rem] font-black leading-none tracking-tight text-foreground">
-          SP<span className="text-primary">A</span>RK
-          <span className="text-primary">UP</span>
+          SPARK<span className="text-primary">U</span>P
         </h1>
         <h1 className="text-7xl md:text-[10rem] font-black leading-none tracking-tight text-foreground -mt-2 md:-mt-4">
-          SUMM<span className="text-primary">I</span>T
+          S<span className="text-primary">U</span>MMIT
         </h1>
       </div>
 
