@@ -71,7 +71,7 @@ const NavigationOverlay = () => {
           <button
             onClick={() => {
               setIsOpen(false);
-              navigate("/register");
+              navigate("/events");
             }}
             className={`mt-4 px-12 py-4 bg-primary text-primary-foreground font-mono text-xl md:text-2xl rounded-lg shadow-lg hover:opacity-90 transition-all duration-300 ${
               isOpen ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"
