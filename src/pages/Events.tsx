@@ -1,0 +1,117 @@
+import { useNavigate } from "react-router-dom";
+import NavigationOverlay from "@/components/NavigationOverlay";
+import FooterSection from "@/components/FooterSection";
+
+import eventIdeaBuildup from "@/assets/event-idea-buildup.jpg";
+import eventBannerExpo from "@/assets/event-banner-expo.jpg";
+import eventBiddingWar from "@/assets/event-bidding-war.jpg";
+import eventStartupPitch from "@/assets/event-startup-pitch.jpg";
+import eventStockUp from "@/assets/event-stock-up.jpg";
+import logoEdc from "@/assets/logo-edc.png";
+import logoIic from "@/assets/logo-iic.png";
+import logo25 from "@/assets/logo-25years.png";
+
+const events = [
+  {
+    name: "Idea Build-Up",
+    tagline: "Build Under Pressure",
+    image: eventIdeaBuildup,
+  },
+  {
+    name: "Banner Expo",
+    tagline: "Make Them Look Twice",
+    image: eventBannerExpo,
+  },
+  {
+    name: "Bidding War",
+    tagline: "Raise or Retreat",
+    image: eventBiddingWar,
+  },
+  {
+    name: "Startup Pitch",
+    tagline: "Face the Jury",
+    image: eventStartupPitch,
+  },
+  {
+    name: "Stock Up",
+    tagline: "Command the Market",
+    image: eventStockUp,
+  },
+];
+
+const Events = () => {
+  const navigate = useNavigate();
+
+  return (
+    <main className="overflow-x-hidden bg-background">
+      <NavigationOverlay />
+
+      {/* Title */}
+      <section className="pt-28 pb-8 text-center">
+        <h1 className="font-display text-primary text-5xl md:text-7xl">Events</h1>
+      </section>
+
+      {/* Stacking cards container */}
+      <div className="relative px-4 md:px-12 pb-8">
+        {events.map((event, index) => (
+          <div
+            key={event.name}
+            className="sticky top-20 mb-8"
+            style={{ zIndex: index + 1 }}
+          >
+            <div
+              className="max-w-6xl mx-auto rounded-2xl border border-border/40 overflow-hidden"
+              style={{
+                backgroundColor: "hsl(225 30% 16%)",
+                boxShadow: "0 8px 40px rgba(0,0,0,0.5), inset 0 1px 0 rgba(255,255,255,0.05)",
+              }}
+            >
+              <div className="flex flex-col md:flex-row items-stretch">
+                {/* Left: Poster image with logos */}
+                <div className="md:w-[40%] relative p-4 md:p-6">
+                  {/* Mini logos row */}
+                  <div className="flex items-center gap-2 mb-3">
+                    <img src={logoEdc} alt="EDC" className="h-6 object-contain" />
+                    <img src={logoIic} alt="IIC" className="h-6 object-contain" />
+                    <img src={logo25} alt="25 Years" className="h-6 object-contain" />
+                    <span className="text-foreground text-xs font-bold tracking-wider">SiliconTech</span>
+                  </div>
+                  <img
+                    src={event.image}
+                    alt={event.name}
+                    className="w-full rounded-xl object-cover aspect-square"
+                  />
+                </div>
+
+                {/* Right: Event details */}
+                <div className="md:w-[60%] flex flex-col items-center justify-center p-8 md:p-12">
+                  <h2 className="font-display text-primary text-4xl md:text-6xl mb-4 text-center italic">
+                    {event.name}
+                  </h2>
+                  <p className="font-mono text-foreground text-base md:text-lg tracking-wider mb-8">
+                    {event.tagline}
+                  </p>
+                  <div className="flex gap-4">
+                    <button className="px-8 py-3 bg-primary text-primary-foreground font-mono text-sm md:text-base font-bold rounded hover:bg-primary/90 transition-colors">
+                      Rulebook
+                    </button>
+                    <button
+                      onClick={() => navigate("/register")}
+                      className="px-8 py-3 bg-primary text-primary-foreground font-mono text-sm md:text-base font-bold rounded hover:bg-primary/90 transition-colors"
+                    >
+                      Register
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      <FooterSection />
+    </main>
+  );
+};
+
+export default Events;
