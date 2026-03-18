@@ -1,17 +1,38 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import { ArrowUpRight } from "lucide-react";
 
 const NavigationOverlay = () => {
   const [isOpen, setIsOpen] = useState(false);
   const navigate = useNavigate();
+  const location = useLocation();
 
   const links = [
-    { label: "Home", href: "#home" },
-    { label: "Events", href: "#events" },
-    { label: "Team", href: "#team" },
-    { label: "Glimpse", href: "#glimpse" },
+    { label: "Home", href: "/", type: "route" },
+    { label: "Events", href: "/events", type: "route" },
+    { label: "Team", href: "/#team", type: "hash" },
+    { label: "Glimpse", href: "/#glimpse", type: "hash" },
   ];
+
+  const handleLinkClick = (link: { label: string; href: string; type: string }) => {
+    setIsOpen(false);
+    if (link.type === "route") {
+      navigate(link.href);
+    } else {
+      // hash link - navigate to home first if not there, then scroll
+      const hash = link.href.replace("/", "");
+      if (location.pathname !== "/") {
+        navigate("/");
+        setTimeout(() => {
+          const el = document.querySelector(hash);
+          el?.scrollIntoView({ behavior: "smooth" });
+        }, 300);
+      } else {
+        const el = document.querySelector(hash);
+        el?.scrollIntoView({ behavior: "smooth" });
+      }
+    }
+  };
 
   return (
     <>
@@ -48,15 +69,9 @@ const NavigationOverlay = () => {
         {/* Navigation links */}
         <div className="relative z-10 flex flex-col items-center justify-center h-full gap-6">
           {links.map((link, i) => (
-            <a
+            <button
               key={link.label}
-              href={link.href}
-              onClick={(e) => {
-                e.preventDefault();
-                setIsOpen(false);
-                const el = document.querySelector(link.href);
-                el?.scrollIntoView({ behavior: "smooth" });
-              }}
+              onClick={() => handleLinkClick(link)}
               className={`flex items-center gap-3 text-background font-mono text-3xl md:text-4xl tracking-wide hover:opacity-70 transition-all duration-300 ${
                 isOpen ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"
               }`}
@@ -64,14 +79,14 @@ const NavigationOverlay = () => {
             >
               {link.label}
               <ArrowUpRight className="w-6 h-6 md:w-8 md:h-8" />
-            </a>
+            </button>
           ))}
 
           {/* Register button */}
           <button
             onClick={() => {
               setIsOpen(false);
-              navigate("/events");
+              navigate("/register");
             }}
             className={`mt-4 px-12 py-4 bg-primary text-primary-foreground font-mono text-xl md:text-2xl rounded-lg shadow-lg hover:opacity-90 transition-all duration-300 ${
               isOpen ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"
