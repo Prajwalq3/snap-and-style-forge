@@ -40,8 +40,9 @@ const events = [
   },
 ];
 
-const CARD_HEIGHT = 420;
-const CARD_TOP = 80;
+const CARD_HEIGHT = 460;
+const CARD_TOP = 96;
+const STACK_OVERLAP = 280;
 
 const Events = () => {
   const navigate = useNavigate();
@@ -56,29 +57,25 @@ const Events = () => {
         <h1 className="font-display text-primary text-5xl md:text-7xl">Events</h1>
       </section>
 
-      {/* Stacking cards - each card scrolls up and sticks, next card covers it */}
+      {/* Stacking cards */}
       <div className="relative px-4 md:px-12 pb-20">
         {events.map((event, index) => (
           <div
             key={event.name}
-            className="h-[500px]"
-            style={{ marginBottom: index === events.length - 1 ? 0 : '-80px' }}
+            className="relative"
+            style={{
+              height: `${CARD_HEIGHT + STACK_OVERLAP}px`,
+              marginTop: index === 0 ? 0 : `-${STACK_OVERLAP}px`,
+            }}
           >
             <div
               className="sticky"
               style={{
                 top: `${CARD_TOP}px`,
                 zIndex: index + 1,
-                height: `${CARD_HEIGHT}px`,
               }}
             >
-              <div
-                className="max-w-6xl mx-auto rounded-2xl border border-border/40 overflow-hidden h-full"
-                style={{
-                  backgroundColor: "hsl(225 30% 16%)",
-                  boxShadow: "0 8px 40px rgba(0,0,0,0.6), inset 0 1px 0 rgba(255,255,255,0.05)",
-                }}
-              >
+              <div className="max-w-6xl mx-auto h-[460px] rounded-2xl border border-border/40 overflow-hidden bg-card shadow-2xl">
                 <div className="flex flex-col md:flex-row items-stretch h-full">
                   {/* Left: Poster image with logos */}
                   <div className="md:w-[40%] relative p-4 md:p-6 flex flex-col">
