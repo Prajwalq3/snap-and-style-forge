@@ -3,6 +3,11 @@ import NavigationOverlay from "@/components/NavigationOverlay";
 import Header from "@/components/Header";
 import FooterSection from "@/components/FooterSection";
 
+import teamRef1 from "@/assets/team-ref-1.png";
+import teamRef2 from "@/assets/team-ref-2.png";
+import teamRef3 from "@/assets/team-ref-3.png";
+import teamRef4 from "@/assets/team-ref-4.png";
+
 const departments = [
   "DIRECTORS",
   "SPONSORSHIP",
@@ -24,54 +29,53 @@ interface TeamMember {
   photo: string;
 }
 
-// Placeholder team data - replace with real photos and names
 const teamData: Record<Department, TeamMember[]> = {
   "DIRECTORS": [
-    { name: "Director 1", role: "Lead", photo: "/placeholder.svg" },
-    { name: "Director 2", role: "Member", photo: "/placeholder.svg" },
+    { name: "Director 1", role: "Lead", photo: teamRef1 },
+    { name: "Director 2", role: "Member", photo: teamRef2 },
   ],
   "SPONSORSHIP": [
-    { name: "Sponsor Lead", role: "Lead", photo: "/placeholder.svg" },
-    { name: "Sponsor Co-Lead", role: "Co-Lead", photo: "/placeholder.svg" },
-    { name: "Member 1", role: "Member", photo: "/placeholder.svg" },
-    { name: "Member 2", role: "Member", photo: "/placeholder.svg" },
+    { name: "Sponsor Lead", role: "Lead", photo: teamRef3 },
+    { name: "Sponsor Co-Lead", role: "Co-Lead", photo: teamRef4 },
+    { name: "Member 1", role: "Member", photo: teamRef1 },
+    { name: "Member 2", role: "Member", photo: teamRef2 },
   ],
   "EVENT MANAGEMENT": [
-    { name: "Prakhar Mishra", role: "Lead", photo: "/placeholder.svg" },
-    { name: "S N Parsuram Swain", role: "Co-Lead", photo: "/placeholder.svg" },
-    { name: "Shubham Kumar Jha", role: "Member", photo: "/placeholder.svg" },
-    { name: "Sampad Prasad Nayak", role: "Member", photo: "/placeholder.svg" },
+    { name: "Prakhar Mishra", role: "Lead", photo: teamRef1 },
+    { name: "S N Parsuram Swain", role: "Co-Lead", photo: teamRef2 },
+    { name: "Shubham Kumar Jha", role: "Member", photo: teamRef3 },
+    { name: "Sampad Prasad Nayak", role: "Member", photo: teamRef4 },
   ],
   "WEBSITE": [
-    { name: "Satyam Sinha", role: "Lead", photo: "/placeholder.svg" },
-    { name: "Md. Rizvi Hassan Ansari", role: "Member", photo: "/placeholder.svg" },
-    { name: "Bhimesh Kr Mehra", role: "Member", photo: "/placeholder.svg" },
-    { name: "Jasdeep Singh", role: "Member", photo: "/placeholder.svg" },
+    { name: "Satyam Sinha", role: "Lead", photo: teamRef3 },
+    { name: "Md. Rizvi Hassan Ansari", role: "Member", photo: teamRef4 },
+    { name: "Bhimesh Kr Mehra", role: "Member", photo: teamRef1 },
+    { name: "Jasdeep Singh", role: "Member", photo: teamRef2 },
   ],
   "GRAPHICS": [
-    { name: "Graphics Lead", role: "Lead", photo: "/placeholder.svg" },
-    { name: "Graphics Member", role: "Member", photo: "/placeholder.svg" },
+    { name: "Graphics Lead", role: "Lead", photo: teamRef2 },
+    { name: "Graphics Member", role: "Member", photo: teamRef3 },
   ],
   "DOCUMENTATION": [
-    { name: "Doc Lead", role: "Lead", photo: "/placeholder.svg" },
-    { name: "Doc Member", role: "Member", photo: "/placeholder.svg" },
+    { name: "Doc Lead", role: "Lead", photo: teamRef4 },
+    { name: "Doc Member", role: "Member", photo: teamRef1 },
   ],
   "SOCIAL MEDIA": [
-    { name: "Ashlesa Mahapatra", role: "Lead", photo: "/placeholder.svg" },
-    { name: "Anubhav Poddar", role: "Co-Lead", photo: "/placeholder.svg" },
-    { name: "Aryan Singh", role: "Member", photo: "/placeholder.svg" },
+    { name: "Ashlesa Mahapatra", role: "Lead", photo: teamRef2 },
+    { name: "Anubhav Poddar", role: "Co-Lead", photo: teamRef3 },
+    { name: "Aryan Singh", role: "Member", photo: teamRef4 },
   ],
   "PR & MARKETING": [
-    { name: "PR Lead", role: "Lead", photo: "/placeholder.svg" },
-    { name: "PR Member", role: "Member", photo: "/placeholder.svg" },
+    { name: "PR Lead", role: "Lead", photo: teamRef1 },
+    { name: "PR Member", role: "Member", photo: teamRef2 },
   ],
   "CREATIVE": [
-    { name: "Creative Lead", role: "Lead", photo: "/placeholder.svg" },
-    { name: "Creative Member", role: "Member", photo: "/placeholder.svg" },
+    { name: "Creative Lead", role: "Lead", photo: teamRef3 },
+    { name: "Creative Member", role: "Member", photo: teamRef4 },
   ],
   "MEDIA PRODUCTION": [
-    { name: "Media Lead", role: "Lead", photo: "/placeholder.svg" },
-    { name: "Media Member", role: "Member", photo: "/placeholder.svg" },
+    { name: "Media Lead", role: "Lead", photo: teamRef1 },
+    { name: "Media Member", role: "Member", photo: teamRef2 },
   ],
 };
 
@@ -79,7 +83,6 @@ const Team = () => {
   const [activeDept, setActiveDept] = useState<Department>("DIRECTORS");
   const tabBarRef = useRef<HTMLDivElement>(null);
 
-  // Scroll active tab into view
   useEffect(() => {
     if (tabBarRef.current) {
       const activeBtn = tabBarRef.current.querySelector('[data-active="true"]');
@@ -118,7 +121,7 @@ const Team = () => {
                 <img
                   src={member.photo}
                   alt={member.name}
-                  className="w-full h-full object-cover grayscale bg-card"
+                  className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-500 bg-card"
                 />
               </div>
               <p className="font-display text-foreground text-sm md:text-base">

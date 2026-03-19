@@ -4,24 +4,29 @@ import NavigationOverlay from "@/components/NavigationOverlay";
 import Header from "@/components/Header";
 import FooterSection from "@/components/FooterSection";
 
+import glimpse1 from "@/assets/glimpse-1.png";
+import glimpse2 from "@/assets/glimpse-2.png";
+import glimpse3 from "@/assets/glimpse-3.png";
+import glimpse4 from "@/assets/glimpse-4.png";
+import glimpse5 from "@/assets/glimpse-5.png";
+
 const categories = ["ALL", "INAUGURATION", "EVENTS", "CLOSING"] as const;
 type Category = typeof categories[number];
 
-// Placeholder glimpse data - replace with real photos
 const glimpses = [
-  { id: 1, src: "/placeholder.svg", category: "INAUGURATION" as Category, aspect: "tall" },
-  { id: 2, src: "/placeholder.svg", category: "INAUGURATION" as Category, aspect: "wide" },
-  { id: 3, src: "/placeholder.svg", category: "EVENTS" as Category, aspect: "square" },
-  { id: 4, src: "/placeholder.svg", category: "INAUGURATION" as Category, aspect: "tall" },
-  { id: 5, src: "/placeholder.svg", category: "EVENTS" as Category, aspect: "wide" },
-  { id: 6, src: "/placeholder.svg", category: "CLOSING" as Category, aspect: "square" },
-  { id: 7, src: "/placeholder.svg", category: "EVENTS" as Category, aspect: "tall" },
-  { id: 8, src: "/placeholder.svg", category: "INAUGURATION" as Category, aspect: "wide" },
-  { id: 9, src: "/placeholder.svg", category: "CLOSING" as Category, aspect: "square" },
-  { id: 10, src: "/placeholder.svg", category: "EVENTS" as Category, aspect: "tall" },
-  { id: 11, src: "/placeholder.svg", category: "CLOSING" as Category, aspect: "wide" },
-  { id: 12, src: "/placeholder.svg", category: "EVENTS" as Category, aspect: "square" },
+  { id: 1, src: glimpse1, category: "INAUGURATION" as Category, aspect: "wide" },
+  { id: 2, src: glimpse2, category: "INAUGURATION" as Category, aspect: "tall" },
+  { id: 3, src: glimpse3, category: "EVENTS" as Category, aspect: "square" },
+  { id: 4, src: glimpse4, category: "EVENTS" as Category, aspect: "wide" },
+  { id: 5, src: glimpse5, category: "CLOSING" as Category, aspect: "tall" },
+  { id: 6, src: glimpse1, category: "EVENTS" as Category, aspect: "square" },
+  { id: 7, src: glimpse3, category: "CLOSING" as Category, aspect: "wide" },
+  { id: 8, src: glimpse2, category: "INAUGURATION" as Category, aspect: "tall" },
+  { id: 9, src: glimpse4, category: "EVENTS" as Category, aspect: "square" },
+  { id: 10, src: glimpse5, category: "CLOSING" as Category, aspect: "wide" },
 ];
+
+const CARD_HEIGHT = 500;
 
 const Glimpses = () => {
   const [activeCategory, setActiveCategory] = useState<Category>("ALL");
@@ -49,28 +54,32 @@ const Glimpses = () => {
         <ChevronDown className="w-6 h-6 text-foreground/50 mt-8 animate-bounce" />
       </section>
 
-      {/* Photo gallery - masonry style */}
-      <section className="px-4 md:px-8 pb-24 flex-1">
-        <div className="max-w-7xl mx-auto columns-2 md:columns-3 lg:columns-4 gap-3 space-y-3">
-          {filtered.map((photo) => (
+      {/* Stacking cards - each photo stacks on scroll */}
+      <section className="relative px-4 md:px-8 pb-24 flex-1">
+        {filtered.map((photo, index) => (
+          <div
+            key={photo.id}
+            className="h-[550px]"
+            style={{ marginBottom: index === filtered.length - 1 ? 0 : "-100px" }}
+          >
             <div
-              key={photo.id}
-              className="break-inside-avoid rounded-xl overflow-hidden border border-border/20"
+              className="sticky max-w-5xl mx-auto"
+              style={{
+                top: `${80 + index * 10}px`,
+                zIndex: index + 1,
+                height: `${CARD_HEIGHT}px`,
+              }}
             >
-              <img
-                src={photo.src}
-                alt={`Event glimpse ${photo.id}`}
-                className={`w-full object-cover bg-card ${
-                  photo.aspect === "tall"
-                    ? "h-72 md:h-96"
-                    : photo.aspect === "wide"
-                    ? "h-40 md:h-56"
-                    : "h-52 md:h-64"
-                }`}
-              />
+              <div className="rounded-2xl overflow-hidden border border-border/30 h-full shadow-2xl">
+                <img
+                  src={photo.src}
+                  alt={`Event glimpse ${photo.id}`}
+                  className="w-full h-full object-cover"
+                />
+              </div>
             </div>
-          ))}
-        </div>
+          </div>
+        ))}
       </section>
 
       {/* Sticky bottom filter bar */}
