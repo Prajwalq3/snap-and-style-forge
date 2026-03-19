@@ -10,8 +10,8 @@ const NavigationOverlay = () => {
   const links = [
     { label: "Home", href: "/", type: "route" },
     { label: "Events", href: "/events", type: "route" },
-    { label: "Team", href: "/#team", type: "hash" },
-    { label: "Glimpse", href: "/#glimpse", type: "hash" },
+    { label: "Glimpses", href: "/glimpses", type: "route" },
+    { label: "Team", href: "/team", type: "route" },
   ];
 
   const handleLinkClick = (link: { label: string; href: string; type: string }) => {
