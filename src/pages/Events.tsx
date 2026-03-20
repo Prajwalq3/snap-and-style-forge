@@ -42,7 +42,6 @@ const events = [
 
 const CARD_HEIGHT = 460;
 const CARD_TOP = 96;
-const STACK_OVERLAP = 280;
 
 const Events = () => {
   const navigate = useNavigate();
