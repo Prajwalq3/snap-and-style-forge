@@ -61,10 +61,9 @@ const Events = () => {
         {events.map((event, index) => (
           <div
             key={event.name}
-            className="relative"
             style={{
-              height: `${CARD_HEIGHT + STACK_OVERLAP}px`,
-              marginTop: index === 0 ? 0 : `-${STACK_OVERLAP}px`,
+              height: `${CARD_HEIGHT}px`,
+              marginBottom: index < events.length - 1 ? '0px' : '0px',
             }}
           >
             <div
