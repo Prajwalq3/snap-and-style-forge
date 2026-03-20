@@ -4,32 +4,31 @@ import NavigationOverlay from "@/components/NavigationOverlay";
 import Header from "@/components/Header";
 import FooterSection from "@/components/FooterSection";
 
-import glimpseInaugImg from "@/assets/glimpse-inaug.png";
-import glimpseEventsImg from "@/assets/glimpse-events.png";
-import glimpseClosingImg from "@/assets/glimpse-closing.png";
 import glimpse1 from "@/assets/glimpse-1.png";
 import glimpse2 from "@/assets/glimpse-2.png";
 import glimpse3 from "@/assets/glimpse-3.png";
 import glimpse4 from "@/assets/glimpse-4.png";
 import glimpse5 from "@/assets/glimpse-5.png";
+import glimpse6 from "@/assets/glimpse-6.png";
+import glimpse7 from "@/assets/glimpse-7.png";
 
 const categories = ["ALL", "INAUGURATION", "EVENTS", "CLOSING"] as const;
 type Category = typeof categories[number];
 
 const glimpses = [
   // Inauguration
-  { id: 1, src: glimpseInaugImg, category: "INAUGURATION" as Category },
-  { id: 2, src: glimpse1, category: "INAUGURATION" as Category },
-  { id: 3, src: glimpse4, category: "INAUGURATION" as Category },
+  { id: 1, src: glimpse1, category: "INAUGURATION" as Category },
+  { id: 2, src: glimpse2, category: "INAUGURATION" as Category },
+  { id: 3, src: glimpse3, category: "INAUGURATION" as Category },
   // Events
-  { id: 4, src: glimpseEventsImg, category: "EVENTS" as Category },
-  { id: 5, src: glimpse2, category: "EVENTS" as Category },
-  { id: 6, src: glimpse3, category: "EVENTS" as Category },
-  { id: 7, src: glimpse5, category: "EVENTS" as Category },
+  { id: 4, src: glimpse4, category: "EVENTS" as Category },
+  { id: 5, src: glimpse5, category: "EVENTS" as Category },
+  { id: 6, src: glimpse1, category: "EVENTS" as Category },
+  { id: 7, src: glimpse6, category: "EVENTS" as Category },
   // Closing
-  { id: 8, src: glimpseClosingImg, category: "CLOSING" as Category },
-  { id: 9, src: glimpse1, category: "CLOSING" as Category },
-  { id: 10, src: glimpse3, category: "CLOSING" as Category },
+  { id: 8, src: glimpse7, category: "CLOSING" as Category },
+  { id: 9, src: glimpse3, category: "CLOSING" as Category },
+  { id: 10, src: glimpse5, category: "CLOSING" as Category },
 ];
 
 const CARD_HEIGHT = 500;

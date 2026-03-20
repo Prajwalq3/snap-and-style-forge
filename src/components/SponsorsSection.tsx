@@ -48,10 +48,10 @@ const SponsorsSection = () => {
   return (
     <section ref={sectionRef} className="relative py-20 px-6 md:px-20 overflow-hidden">
       <div
-        className="absolute inset-0 bg-cover bg-center opacity-80"
+        className="absolute inset-0 bg-cover bg-center"
         style={{ backgroundImage: `url(${sponsorsBg})` }}
       />
-      <div className="absolute inset-0 bg-surface-gray/60" />
+      <div className="absolute inset-0 bg-surface-gray/30" />
 
       <div className="relative z-10 max-w-7xl mx-auto">
         <h2 className="text-5xl md:text-7xl font-black text-foreground mb-2 tracking-wider">
