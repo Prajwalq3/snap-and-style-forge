@@ -25,20 +25,25 @@ type Department = typeof departments[number];
 
 interface TeamMember {
   name: string;
-  role: "Lead" | "Co-Lead" | "Member";
+  role: string;
   photo: string;
 }
 
 const teamData: Record<Department, TeamMember[]> = {
   "DIRECTORS": [
-    { name: "Director 1", role: "Lead", photo: teamRef1 },
-    { name: "Director 2", role: "Member", photo: teamRef2 },
+    { name: "Shaswat Tripathi", role: "President", photo: teamRef1 },
+    { name: "Shubham Srivastav", role: "Vice President", photo: teamRef2 },
+    { name: "Piush Praharaj", role: "Director", photo: teamRef3 },
+    { name: "Priyanshi Dubey", role: "Director", photo: teamRef4 },
+    { name: "Puja Mahato", role: "Director", photo: teamRef1 },
   ],
   "SPONSORSHIP": [
-    { name: "Sponsor Lead", role: "Lead", photo: teamRef3 },
-    { name: "Sponsor Co-Lead", role: "Co-Lead", photo: teamRef4 },
-    { name: "Member 1", role: "Member", photo: teamRef1 },
-    { name: "Member 2", role: "Member", photo: teamRef2 },
+    { name: "Jayadeep Dash", role: "Lead", photo: teamRef1 },
+    { name: "Nishan Mishra", role: "Member", photo: teamRef2 },
+    { name: "Pranav Kumar", role: "Member", photo: teamRef3 },
+    { name: "S N Parshuram Swain", role: "Member", photo: teamRef4 },
+    { name: "Suryanshu Panigrahi", role: "Co-Lead", photo: teamRef1 },
+    { name: "Garima Mohapatra", role: "Member", photo: teamRef2 },
   ],
   "EVENT MANAGEMENT": [
     { name: "Prakhar Mishra", role: "Lead", photo: teamRef1 },
@@ -53,29 +58,40 @@ const teamData: Record<Department, TeamMember[]> = {
     { name: "Jasdeep Singh", role: "Member", photo: teamRef2 },
   ],
   "GRAPHICS": [
-    { name: "Graphics Lead", role: "Lead", photo: teamRef2 },
-    { name: "Graphics Member", role: "Member", photo: teamRef3 },
+    { name: "Bhimesh Kr Mehra", role: "Lead", photo: teamRef1 },
+    { name: "Jayadeep Dash", role: "Member", photo: teamRef2 },
+    { name: "Rishabh Kumar", role: "Co-Lead", photo: teamRef3 },
+    { name: "Akankshya Swain", role: "Member", photo: teamRef4 },
   ],
   "DOCUMENTATION": [
-    { name: "Doc Lead", role: "Lead", photo: teamRef4 },
-    { name: "Doc Member", role: "Member", photo: teamRef1 },
+    { name: "Ananya Patel", role: "Lead", photo: teamRef4 },
+    { name: "Rohan Verma", role: "Co-Lead", photo: teamRef1 },
+    { name: "Sneha Kumari", role: "Member", photo: teamRef2 },
+    { name: "Aditya Mohanty", role: "Member", photo: teamRef3 },
   ],
   "SOCIAL MEDIA": [
     { name: "Ashlesa Mahapatra", role: "Lead", photo: teamRef2 },
     { name: "Anubhav Poddar", role: "Co-Lead", photo: teamRef3 },
     { name: "Aryan Singh", role: "Member", photo: teamRef4 },
+    { name: "Priya Sharma", role: "Member", photo: teamRef1 },
   ],
   "PR & MARKETING": [
-    { name: "PR Lead", role: "Lead", photo: teamRef1 },
-    { name: "PR Member", role: "Member", photo: teamRef2 },
+    { name: "Vikram Rout", role: "Lead", photo: teamRef1 },
+    { name: "Shalini Das", role: "Co-Lead", photo: teamRef2 },
+    { name: "Rahul Behera", role: "Member", photo: teamRef3 },
+    { name: "Tanvi Gupta", role: "Member", photo: teamRef4 },
   ],
   "CREATIVE": [
-    { name: "Creative Lead", role: "Lead", photo: teamRef3 },
-    { name: "Creative Member", role: "Member", photo: teamRef4 },
+    { name: "Deepak Sahoo", role: "Lead", photo: teamRef3 },
+    { name: "Megha Tripathy", role: "Co-Lead", photo: teamRef4 },
+    { name: "Kunal Pradhan", role: "Member", photo: teamRef1 },
+    { name: "Isha Nayak", role: "Member", photo: teamRef2 },
   ],
   "MEDIA PRODUCTION": [
-    { name: "Media Lead", role: "Lead", photo: teamRef1 },
-    { name: "Media Member", role: "Member", photo: teamRef2 },
+    { name: "Soumya Ranjan", role: "Lead", photo: teamRef1 },
+    { name: "Ankita Mishra", role: "Co-Lead", photo: teamRef2 },
+    { name: "Siddharth Jena", role: "Member", photo: teamRef3 },
+    { name: "Riya Panda", role: "Member", photo: teamRef4 },
   ],
 };
 
@@ -117,7 +133,7 @@ const Team = () => {
         <div className="max-w-6xl mx-auto grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
           {members.map((member, i) => (
             <div key={i} className="text-center">
-              <div className="aspect-[3/4] overflow-hidden rounded-sm mb-3">
+              <div className="aspect-[3/4] overflow-hidden rounded-sm mb-3 border border-border/20">
                 <img
                   src={member.photo}
                   alt={member.name}

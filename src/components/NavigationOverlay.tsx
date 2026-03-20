@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useCallback } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import { ArrowUpRight, X } from "lucide-react";
 
@@ -14,8 +14,12 @@ const NavigationOverlay = () => {
     { label: "Team", href: "/team", type: "route" },
   ];
 
-  const handleLinkClick = (link: { label: string; href: string; type: string }) => {
+  const closeMenu = useCallback(() => {
     setIsOpen(false);
+  }, []);
+
+  const handleLinkClick = (link: { label: string; href: string; type: string }) => {
+    closeMenu();
     if (link.type === "route") {
       navigate(link.href);
     } else {
@@ -35,16 +39,18 @@ const NavigationOverlay = () => {
 
   return (
     <>
-      {/* Hamburger button */}
-      <button
-        onClick={() => setIsOpen(true)}
-        className="fixed top-6 left-6 z-50 flex flex-col gap-1.5 group"
-        aria-label="Open menu"
-      >
-        <span className="block w-8 h-0.5 bg-foreground transition-all group-hover:w-10" />
-        <span className="block w-8 h-0.5 bg-foreground transition-all group-hover:w-10" />
-        <span className="block w-6 h-0.5 bg-foreground transition-all group-hover:w-10" />
-      </button>
+      {/* Hamburger button - hidden when menu is open */}
+      {!isOpen && (
+        <button
+          onClick={() => setIsOpen(true)}
+          className="fixed top-6 left-6 z-50 flex flex-col gap-1.5 group"
+          aria-label="Open menu"
+        >
+          <span className="block w-8 h-0.5 bg-foreground transition-all group-hover:w-10" />
+          <span className="block w-8 h-0.5 bg-foreground transition-all group-hover:w-10" />
+          <span className="block w-6 h-0.5 bg-foreground transition-all group-hover:w-10" />
+        </button>
+      )}
 
       {/* Fullscreen overlay */}
       {isOpen && (
@@ -53,8 +59,8 @@ const NavigationOverlay = () => {
 
           {/* Close button */}
           <button
-            onClick={() => setIsOpen(false)}
-            className="absolute top-6 right-6 z-10 text-background hover:opacity-70 transition-opacity"
+            onClick={closeMenu}
+            className="absolute top-6 right-6 z-[110] p-2 text-foreground hover:text-primary transition-colors"
             aria-label="Close menu"
           >
             <X className="w-8 h-8" />
@@ -66,7 +72,7 @@ const NavigationOverlay = () => {
               <button
                 key={link.label}
                 onClick={() => handleLinkClick(link)}
-                className="flex items-center gap-3 text-background font-mono text-3xl md:text-4xl tracking-wide hover:opacity-70 transition-all duration-300 animate-fade-in"
+                className="flex items-center gap-3 text-foreground font-mono text-3xl md:text-4xl tracking-wide hover:text-primary transition-all duration-300 animate-fade-in"
                 style={{ animationDelay: `${150 + i * 80}ms` }}
               >
                 {link.label}
@@ -76,7 +82,7 @@ const NavigationOverlay = () => {
 
             <button
               onClick={() => {
-                setIsOpen(false);
+                closeMenu();
                 navigate("/register");
               }}
               className="mt-4 px-12 py-4 bg-primary text-primary-foreground font-mono text-xl md:text-2xl rounded-lg shadow-lg hover:opacity-90 transition-all duration-300 animate-fade-in"

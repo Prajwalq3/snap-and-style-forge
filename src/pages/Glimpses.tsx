@@ -4,6 +4,9 @@ import NavigationOverlay from "@/components/NavigationOverlay";
 import Header from "@/components/Header";
 import FooterSection from "@/components/FooterSection";
 
+import glimpseInaugImg from "@/assets/glimpse-inaug.png";
+import glimpseEventsImg from "@/assets/glimpse-events.png";
+import glimpseClosingImg from "@/assets/glimpse-closing.png";
 import glimpse1 from "@/assets/glimpse-1.png";
 import glimpse2 from "@/assets/glimpse-2.png";
 import glimpse3 from "@/assets/glimpse-3.png";
@@ -14,16 +17,19 @@ const categories = ["ALL", "INAUGURATION", "EVENTS", "CLOSING"] as const;
 type Category = typeof categories[number];
 
 const glimpses = [
-  { id: 1, src: glimpse1, category: "INAUGURATION" as Category, aspect: "wide" },
-  { id: 2, src: glimpse2, category: "INAUGURATION" as Category, aspect: "tall" },
-  { id: 3, src: glimpse3, category: "EVENTS" as Category, aspect: "square" },
-  { id: 4, src: glimpse4, category: "EVENTS" as Category, aspect: "wide" },
-  { id: 5, src: glimpse5, category: "CLOSING" as Category, aspect: "tall" },
-  { id: 6, src: glimpse1, category: "EVENTS" as Category, aspect: "square" },
-  { id: 7, src: glimpse3, category: "CLOSING" as Category, aspect: "wide" },
-  { id: 8, src: glimpse2, category: "INAUGURATION" as Category, aspect: "tall" },
-  { id: 9, src: glimpse4, category: "EVENTS" as Category, aspect: "square" },
-  { id: 10, src: glimpse5, category: "CLOSING" as Category, aspect: "wide" },
+  // Inauguration
+  { id: 1, src: glimpseInaugImg, category: "INAUGURATION" as Category },
+  { id: 2, src: glimpse1, category: "INAUGURATION" as Category },
+  { id: 3, src: glimpse4, category: "INAUGURATION" as Category },
+  // Events
+  { id: 4, src: glimpseEventsImg, category: "EVENTS" as Category },
+  { id: 5, src: glimpse2, category: "EVENTS" as Category },
+  { id: 6, src: glimpse3, category: "EVENTS" as Category },
+  { id: 7, src: glimpse5, category: "EVENTS" as Category },
+  // Closing
+  { id: 8, src: glimpseClosingImg, category: "CLOSING" as Category },
+  { id: 9, src: glimpse1, category: "CLOSING" as Category },
+  { id: 10, src: glimpse3, category: "CLOSING" as Category },
 ];
 
 const CARD_HEIGHT = 500;
@@ -54,13 +60,12 @@ const Glimpses = () => {
         <ChevronDown className="w-6 h-6 text-foreground/50 mt-8 animate-bounce" />
       </section>
 
-      {/* Stacking cards - each photo stacks on scroll */}
+      {/* Stacking cards */}
       <section className="relative px-4 md:px-8 pb-24 flex-1">
         {filtered.map((photo, index) => (
           <div
             key={photo.id}
-            className="h-[550px]"
-            style={{ marginBottom: index === filtered.length - 1 ? 0 : "-100px" }}
+            style={{ height: `${CARD_HEIGHT}px` }}
           >
             <div
               className="sticky max-w-5xl mx-auto"
