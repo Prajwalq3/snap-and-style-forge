@@ -40,8 +40,9 @@ const events = [
   },
 ];
 
-const CARD_HEIGHT = 460;
-const CARD_TOP = 96;
+const CARD_HEIGHT = 420;
+const CARD_TOP = 80;
+const CARD_OFFSET = 12; // vertical offset between stacked cards
 
 const Events = () => {
   const navigate = useNavigate();
@@ -56,24 +57,34 @@ const Events = () => {
         <h1 className="font-display text-primary text-5xl md:text-7xl">Events</h1>
       </section>
 
-      {/* Stacking cards */}
-      <div className="relative px-4 md:px-12 pb-20">
+      {/* Stacking deck cards */}
+      <div
+        className="relative px-4 md:px-12"
+        style={{ marginBottom: '4rem' }}
+      >
         {events.map((event, index) => (
           <div
             key={event.name}
+            className="relative"
             style={{
-              height: `${CARD_HEIGHT}px`,
-              marginBottom: index < events.length - 1 ? '0px' : '0px',
+              height: index < events.length - 1 ? `${CARD_HEIGHT}px` : 'auto',
             }}
           >
             <div
               className="sticky"
               style={{
-                top: `${CARD_TOP}px`,
+                top: `${CARD_TOP + index * CARD_OFFSET}px`,
                 zIndex: index + 1,
               }}
             >
-              <div className="max-w-6xl mx-auto h-[460px] rounded-2xl border border-border/40 overflow-hidden bg-card shadow-2xl">
+              <div
+                className="max-w-6xl mx-auto rounded-2xl border border-border/40 overflow-hidden bg-card shadow-2xl"
+                style={{
+                  height: `${CARD_HEIGHT}px`,
+                  transform: `scale(${1 - index * 0.01})`,
+                  transformOrigin: 'top center',
+                }}
+              >
                 <div className="flex flex-col md:flex-row items-stretch h-full">
                   {/* Left: Poster image with logos */}
                   <div className="md:w-[40%] relative p-4 md:p-6 flex flex-col">
