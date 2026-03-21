@@ -11,6 +11,7 @@ const NavigationOverlay = () => {
     { label: "Home", href: "/", type: "route" },
     { label: "Events", href: "/events", type: "route" },
     { label: "Glimpses", href: "/glimpses", type: "route" },
+    { label: "Skill Upgrade", href: "/skill-upgrade", type: "route" },
     { label: "Team", href: "/team", type: "route" },
   ];
 
