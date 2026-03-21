@@ -7,7 +7,7 @@ const AboutSection = () => {
           <div className="aspect-video bg-secondary flex items-center justify-center">
             <iframe
               className="w-full h-full"
-              src="https://www.youtube.com/embed/dQw4w9WgXcQ"
+              src="https://www.youtube.com/embed/7fy6cGg1xIo"
               title="Spark Up Summit Video"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
               allowFullScreen
