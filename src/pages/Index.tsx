@@ -5,9 +5,9 @@ import VisionSection from "@/components/VisionSection";
 import SpeakersSection from "@/components/SpeakersSection";
 import SponsorsSection from "@/components/SponsorsSection";
 import ContactSection from "@/components/ContactSection";
-
 import FooterSection from "@/components/FooterSection";
 import NavigationOverlay from "@/components/NavigationOverlay";
+import SkillUpgradeSection from "@/components/SkillUpgradeSection";
 
 const Index = () => {
   return (
@@ -22,6 +22,9 @@ const Index = () => {
       <SpeakersSection />
       <section id="glimpse">
         <SponsorsSection />
+      </section>
+      <section id="skill-upgrade">
+        <SkillUpgradeSection />
       </section>
       <section id="team">
         <ContactSection />
