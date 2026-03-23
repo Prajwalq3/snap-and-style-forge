@@ -158,20 +158,20 @@ const Team = () => {
 
       {/* Team member cards */}
       <section className="flex-1 px-4 md:px-12 pb-24">
-        <div className="max-w-6xl mx-auto grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+        <div className="max-w-6xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-x-6 gap-y-10">
           {members.map((member, i) => (
             <div key={i} className="text-center">
-              <div className="aspect-[3/4] overflow-hidden rounded-sm mb-3 border border-border/20">
+              <div className="aspect-[3/4] overflow-hidden rounded-sm mb-4 border border-border/20">
                 <img
                   src={member.photo}
                   alt={member.name}
                   className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-500 bg-card"
                 />
               </div>
-              <p className="font-display text-foreground text-sm md:text-base">
+              <p className="font-display text-foreground text-sm md:text-base leading-tight">
                 {member.name}
               </p>
-              <p className="font-mono text-primary text-xs">
+              <p className="font-mono text-primary text-xs mt-1">
                 {member.role}
               </p>
             </div>
