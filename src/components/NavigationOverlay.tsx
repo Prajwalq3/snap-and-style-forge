@@ -1,6 +1,6 @@
 import { useState, useCallback } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
-import { ArrowUpRight, X } from "lucide-react";
+import { ArrowUpRight } from "lucide-react";
 
 const NavigationOverlay = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -10,9 +10,8 @@ const NavigationOverlay = () => {
   const links = [
     { label: "Home", href: "/", type: "route" },
     { label: "Events", href: "/events", type: "route" },
-    { label: "Glimpses", href: "/glimpses", type: "route" },
-    { label: "Skill Upgrade", href: "/skill-upgrade", type: "route" },
     { label: "Team", href: "/team", type: "route" },
+    { label: "Glimpse", href: "/glimpses", type: "route" },
   ];
 
   const closeMenu = useCallback(() => {
