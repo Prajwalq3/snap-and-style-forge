@@ -60,10 +60,10 @@ const NavigationOverlay = () => {
           {/* Close button */}
           <button
             onClick={closeMenu}
-            className="absolute top-6 right-6 z-[110] p-2 text-foreground hover:text-primary transition-colors"
+            className="absolute top-6 left-6 z-[110] font-mono text-sm tracking-widest text-foreground hover:text-primary transition-colors"
             aria-label="Close menu"
           >
-            <X className="w-8 h-8" />
+            close
           </button>
 
           {/* Navigation links */}
