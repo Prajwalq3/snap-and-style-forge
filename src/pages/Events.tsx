@@ -6,27 +6,37 @@ import FooterSection from "@/components/FooterSection";
 import logoEdc from "@/assets/logo-edc.png";
 import logoIic from "@/assets/logo-iic.png";
 import logo25 from "@/assets/logo-25years.png";
+import eventIdeaBuildup from "@/assets/event-idea-buildup.jpg";
+import eventBannerExpo from "@/assets/event-banner-expo.jpg";
+import eventBiddingWar from "@/assets/event-bidding-war.jpg";
+import eventStartupPitch from "@/assets/event-startup-pitch.jpg";
+import eventStockUp from "@/assets/event-stock-up.jpg";
 
 const events = [
   {
     name: "Idea Build-Up",
     tagline: "Build Under Pressure",
+    image: eventIdeaBuildup,
   },
   {
     name: "Banner Expo",
     tagline: "Make Them Look Twice",
+    image: eventBannerExpo,
   },
   {
     name: "Bidding War",
     tagline: "Raise or Retreat",
+    image: eventBiddingWar,
   },
   {
     name: "Startup Pitch",
     tagline: "Face the Jury",
+    image: eventStartupPitch,
   },
   {
     name: "Stock Up",
     tagline: "Command the Market",
+    image: eventStockUp,
   },
 ];
 
