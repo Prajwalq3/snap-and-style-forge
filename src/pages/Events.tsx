@@ -3,11 +3,6 @@ import NavigationOverlay from "@/components/NavigationOverlay";
 import Header from "@/components/Header";
 import FooterSection from "@/components/FooterSection";
 
-import eventIdeaBuildup from "@/assets/event-idea-buildup.jpg";
-import eventBannerExpo from "@/assets/event-banner-expo.jpg";
-import eventBiddingWar from "@/assets/event-bidding-war.jpg";
-import eventStartupPitch from "@/assets/event-startup-pitch.jpg";
-import eventStockUp from "@/assets/event-stock-up.jpg";
 import logoEdc from "@/assets/logo-edc.png";
 import logoIic from "@/assets/logo-iic.png";
 import logo25 from "@/assets/logo-25years.png";
@@ -16,33 +11,28 @@ const events = [
   {
     name: "Idea Build-Up",
     tagline: "Build Under Pressure",
-    image: eventIdeaBuildup,
   },
   {
     name: "Banner Expo",
     tagline: "Make Them Look Twice",
-    image: eventBannerExpo,
   },
   {
     name: "Bidding War",
     tagline: "Raise or Retreat",
-    image: eventBiddingWar,
   },
   {
     name: "Startup Pitch",
     tagline: "Face the Jury",
-    image: eventStartupPitch,
   },
   {
     name: "Stock Up",
     tagline: "Command the Market",
-    image: eventStockUp,
   },
 ];
 
 const CARD_HEIGHT = 420;
 const CARD_TOP = 80;
-const CARD_OFFSET = 12; // vertical offset between stacked cards
+const CARD_OFFSET = 12;
 
 const Events = () => {
   const navigate = useNavigate();
@@ -57,11 +47,8 @@ const Events = () => {
         <h1 className="font-display text-primary text-5xl md:text-7xl">Events</h1>
       </section>
 
-      {/* Stacking deck cards */}
-      <div
-        className="relative px-4 md:px-12"
-        style={{ marginBottom: '4rem' }}
-      >
+      {/* Stacking deck cards - hidden below each other, reveal on scroll */}
+      <div className="relative px-4 md:px-12" style={{ marginBottom: '4rem' }}>
         {events.map((event, index) => (
           <div
             key={event.name}
@@ -86,7 +73,7 @@ const Events = () => {
                 }}
               >
                 <div className="flex flex-col md:flex-row items-stretch h-full">
-                  {/* Left: Poster image with logos */}
+                  {/* Left: Placeholder poster area */}
                   <div className="md:w-[40%] relative p-4 md:p-6 flex flex-col">
                     <div className="flex items-center gap-2 mb-3">
                       <img src={logoEdc} alt="EDC" className="h-5 object-contain" />
@@ -94,11 +81,9 @@ const Events = () => {
                       <img src={logo25} alt="25 Years" className="h-5 object-contain" />
                       <span className="text-foreground text-xs font-bold tracking-wider">SiliconTech</span>
                     </div>
-                    <img
-                      src={event.image}
-                      alt={event.name}
-                      className="flex-1 rounded-xl object-cover w-full min-h-0"
-                    />
+                    <div className="flex-1 rounded-xl bg-secondary flex items-center justify-center min-h-0">
+                      <span className="text-muted-foreground/30 font-display text-3xl">{event.name}</span>
+                    </div>
                   </div>
 
                   {/* Right: Event details */}

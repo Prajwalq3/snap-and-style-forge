@@ -12,6 +12,7 @@ const NavigationOverlay = () => {
     { label: "Events", href: "/events", type: "route" },
     { label: "Team", href: "/team", type: "route" },
     { label: "Glimpse", href: "/glimpses", type: "route" },
+    { label: "Skill Upgrade", href: "/skill-upgrade", type: "route" },
   ];
 
   const closeMenu = useCallback(() => {
