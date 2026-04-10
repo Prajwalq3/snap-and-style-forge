@@ -4,20 +4,24 @@ import NavigationOverlay from "@/components/NavigationOverlay";
 import Header from "@/components/Header";
 import FooterSection from "@/components/FooterSection";
 
+import glimpse1 from "@/assets/glimpses/glimpse1.png";
+import glimpse2 from "@/assets/glimpses/glimpse2.png";
+import glimpse3 from "@/assets/glimpses/glimpse3.png";
+
 const categories = ["ALL", "INAUGURATION", "EVENTS", "CLOSING"] as const;
 type Category = typeof categories[number];
 
 const glimpses = [
-  { id: 1, category: "INAUGURATION" as Category },
-  { id: 2, category: "INAUGURATION" as Category },
-  { id: 3, category: "INAUGURATION" as Category },
-  { id: 4, category: "EVENTS" as Category },
-  { id: 5, category: "EVENTS" as Category },
-  { id: 6, category: "EVENTS" as Category },
-  { id: 7, category: "EVENTS" as Category },
-  { id: 8, category: "CLOSING" as Category },
-  { id: 9, category: "CLOSING" as Category },
-  { id: 10, category: "CLOSING" as Category },
+  { id: 1, category: "INAUGURATION" as Category, image: glimpse1 },
+  { id: 2, category: "INAUGURATION" as Category, image: glimpse2 },
+  { id: 3, category: "INAUGURATION" as Category, image: glimpse3 },
+  { id: 4, category: "EVENTS" as Category, image: glimpse1 },
+  { id: 5, category: "EVENTS" as Category, image: glimpse2 },
+  { id: 6, category: "EVENTS" as Category, image: glimpse3 },
+  { id: 7, category: "EVENTS" as Category, image: glimpse1 },
+  { id: 8, category: "CLOSING" as Category, image: glimpse2 },
+  { id: 9, category: "CLOSING" as Category, image: glimpse3 },
+  { id: 10, category: "CLOSING" as Category, image: glimpse1 },
 ];
 
 const CARD_HEIGHT = 500;
@@ -48,7 +52,7 @@ const Glimpses = () => {
         <ChevronDown className="w-6 h-6 text-foreground/50 mt-8 animate-bounce" />
       </section>
 
-      {/* Stacking cards - no photos */}
+      {/* Stacking cards with images */}
       <section className="relative px-4 md:px-8 pb-24 flex-1">
         {filtered.map((photo, index) => (
           <div
@@ -63,10 +67,12 @@ const Glimpses = () => {
                 height: `${CARD_HEIGHT}px`,
               }}
             >
-              <div className="rounded-2xl overflow-hidden border border-border/30 h-full shadow-2xl bg-card flex items-center justify-center">
-                <span className="text-muted-foreground/20 font-display text-6xl">
-                  {photo.category} #{photo.id}
-                </span>
+              <div className="rounded-2xl overflow-hidden border border-border/30 h-full shadow-2xl">
+                <img
+                  src={photo.image}
+                  alt={`${photo.category} glimpse #${photo.id}`}
+                  className="w-full h-full object-cover"
+                />
               </div>
             </div>
           </div>
