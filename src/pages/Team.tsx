@@ -3,6 +3,36 @@ import NavigationOverlay from "@/components/NavigationOverlay";
 import Header from "@/components/Header";
 import FooterSection from "@/components/FooterSection";
 
+import male1 from "@/assets/team/male1.png";
+import male2 from "@/assets/team/male2.png";
+import male3 from "@/assets/team/male3.png";
+import male4 from "@/assets/team/male4.png";
+import male5 from "@/assets/team/male5.png";
+import male6 from "@/assets/team/male6.png";
+import female1 from "@/assets/team/female1.png";
+import female2 from "@/assets/team/female2.png";
+import female3 from "@/assets/team/female3.png";
+
+const malePhotos = [male1, male2, male3, male4, male5, male6];
+const femalePhotos = [female1, female2, female3];
+
+const femaleNames = new Set([
+  "Priyanshi Dubey", "Puja Mahato", "Garima Mohapatra", "Swati Mohanty",
+  "Akankshya Swain", "Prachi Mishra", "Divya Rout", "Sneha Kumari",
+  "Ritika Sahoo", "Meera Das", "Priya Sharma", "Shruti Nayak",
+  "Shalini Das", "Tanvi Gupta", "Neha Swain", "Payal Jena",
+  "Megha Tripathy", "Isha Nayak", "Sweta Panda", "Gargi Mohanty",
+  "Ankita Mishra", "Riya Panda", "Pallavi Dash", "Jyoti Sahoo",
+  "Ashlesa Mahapatra", "Ananya Patel",
+]);
+
+function getPhoto(name: string, index: number): string {
+  if (femaleNames.has(name)) {
+    return femalePhotos[index % femalePhotos.length];
+  }
+  return malePhotos[index % malePhotos.length];
+}
+
 const departments = [
   "DIRECTORS",
   "SPONSORSHIP",
@@ -130,19 +160,21 @@ const Team = () => {
 
   const members = teamData[activeDept];
 
+  // Track male/female index separately for photo cycling
+  let maleIdx = 0;
+  let femaleIdx = 0;
+
   return (
     <main className="overflow-x-hidden bg-background min-h-screen flex flex-col">
       <NavigationOverlay />
       <Header />
 
-      {/* Title */}
       <section className="pt-28 pb-4 text-center">
         <h1 className="font-display text-foreground text-4xl md:text-7xl">
           Meet the <span className="text-primary italic">Team</span>
         </h1>
       </section>
 
-      {/* Department name */}
       <div className="text-center py-6">
         <h2 className="font-display text-foreground/80 text-2xl md:text-4xl">
           {activeDept.charAt(0) + activeDept.slice(1).toLowerCase().replace(/\b\w/g, c => c.toUpperCase())}
@@ -150,28 +182,35 @@ const Team = () => {
         <div className="w-16 h-0.5 bg-primary mx-auto mt-3" />
       </div>
 
-      {/* Team member cards - no photos */}
       <section className="flex-1 px-4 md:px-12 pb-24">
         <div className="max-w-6xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-x-6 gap-y-10">
-          {members.map((member, i) => (
-            <div key={i} className="text-center">
-              <div className="aspect-[3/4] overflow-hidden rounded-sm mb-4 border border-border/20 bg-card flex items-center justify-center">
-                <span className="text-muted-foreground/30 font-display text-4xl">
-                  {member.name.split(" ").map(n => n[0]).join("")}
-                </span>
+          {members.map((member, i) => {
+            const isFemale = femaleNames.has(member.name);
+            const photo = isFemale
+              ? femalePhotos[femaleIdx++ % femalePhotos.length]
+              : malePhotos[maleIdx++ % malePhotos.length];
+
+            return (
+              <div key={i} className="text-center">
+                <div className="aspect-[3/4] overflow-hidden rounded-sm mb-4 border border-border/20">
+                  <img
+                    src={photo}
+                    alt={member.name}
+                    className="w-full h-full object-cover grayscale"
+                  />
+                </div>
+                <p className="font-display text-foreground text-sm md:text-base leading-tight">
+                  {member.name}
+                </p>
+                <p className="font-mono text-primary text-xs mt-1">
+                  {member.role}
+                </p>
               </div>
-              <p className="font-display text-foreground text-sm md:text-base leading-tight">
-                {member.name}
-              </p>
-              <p className="font-mono text-primary text-xs mt-1">
-                {member.role}
-              </p>
-            </div>
-          ))}
+            );
+          })}
         </div>
       </section>
 
-      {/* Sticky bottom tab bar */}
       <div className="sticky bottom-0 z-30 bg-surface-dark/95 backdrop-blur-md border-t border-primary/30 py-3 px-2">
         <div
           ref={tabBarRef}
