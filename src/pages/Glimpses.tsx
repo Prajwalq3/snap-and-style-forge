@@ -4,31 +4,20 @@ import NavigationOverlay from "@/components/NavigationOverlay";
 import Header from "@/components/Header";
 import FooterSection from "@/components/FooterSection";
 
-import glimpse1 from "@/assets/glimpse-1.png";
-import glimpse2 from "@/assets/glimpse-2.png";
-import glimpse3 from "@/assets/glimpse-3.png";
-import glimpse4 from "@/assets/glimpse-4.png";
-import glimpse5 from "@/assets/glimpse-5.png";
-import glimpse6 from "@/assets/glimpse-6.png";
-import glimpse7 from "@/assets/glimpse-7.png";
-
 const categories = ["ALL", "INAUGURATION", "EVENTS", "CLOSING"] as const;
 type Category = typeof categories[number];
 
 const glimpses = [
-  // Inauguration
-  { id: 1, src: glimpse1, category: "INAUGURATION" as Category },
-  { id: 2, src: glimpse2, category: "INAUGURATION" as Category },
-  { id: 3, src: glimpse3, category: "INAUGURATION" as Category },
-  // Events
-  { id: 4, src: glimpse4, category: "EVENTS" as Category },
-  { id: 5, src: glimpse5, category: "EVENTS" as Category },
-  { id: 6, src: glimpse1, category: "EVENTS" as Category },
-  { id: 7, src: glimpse6, category: "EVENTS" as Category },
-  // Closing
-  { id: 8, src: glimpse7, category: "CLOSING" as Category },
-  { id: 9, src: glimpse3, category: "CLOSING" as Category },
-  { id: 10, src: glimpse5, category: "CLOSING" as Category },
+  { id: 1, category: "INAUGURATION" as Category },
+  { id: 2, category: "INAUGURATION" as Category },
+  { id: 3, category: "INAUGURATION" as Category },
+  { id: 4, category: "EVENTS" as Category },
+  { id: 5, category: "EVENTS" as Category },
+  { id: 6, category: "EVENTS" as Category },
+  { id: 7, category: "EVENTS" as Category },
+  { id: 8, category: "CLOSING" as Category },
+  { id: 9, category: "CLOSING" as Category },
+  { id: 10, category: "CLOSING" as Category },
 ];
 
 const CARD_HEIGHT = 500;
@@ -59,7 +48,7 @@ const Glimpses = () => {
         <ChevronDown className="w-6 h-6 text-foreground/50 mt-8 animate-bounce" />
       </section>
 
-      {/* Stacking cards */}
+      {/* Stacking cards - no photos */}
       <section className="relative px-4 md:px-8 pb-24 flex-1">
         {filtered.map((photo, index) => (
           <div
@@ -74,12 +63,10 @@ const Glimpses = () => {
                 height: `${CARD_HEIGHT}px`,
               }}
             >
-              <div className="rounded-2xl overflow-hidden border border-border/30 h-full shadow-2xl">
-                <img
-                  src={photo.src}
-                  alt={`Event glimpse ${photo.id}`}
-                  className="w-full h-full object-cover"
-                />
+              <div className="rounded-2xl overflow-hidden border border-border/30 h-full shadow-2xl bg-card flex items-center justify-center">
+                <span className="text-muted-foreground/20 font-display text-6xl">
+                  {photo.category} #{photo.id}
+                </span>
               </div>
             </div>
           </div>

@@ -3,11 +3,6 @@ import NavigationOverlay from "@/components/NavigationOverlay";
 import Header from "@/components/Header";
 import FooterSection from "@/components/FooterSection";
 
-import teamRef1 from "@/assets/team-ref-1.png";
-import teamRef2 from "@/assets/team-ref-2.png";
-import teamRef3 from "@/assets/team-ref-3.png";
-import teamRef4 from "@/assets/team-ref-4.png";
-
 const departments = [
   "DIRECTORS",
   "SPONSORSHIP",
@@ -26,100 +21,99 @@ type Department = typeof departments[number];
 interface TeamMember {
   name: string;
   role: string;
-  photo: string;
 }
 
 const teamData: Record<Department, TeamMember[]> = {
   "DIRECTORS": [
-    { name: "Shaswat Tripathi", role: "President", photo: teamRef1 },
-    { name: "Shubham Srivastav", role: "Vice President", photo: teamRef2 },
-    { name: "Piush Praharaj", role: "Director", photo: teamRef3 },
-    { name: "Priyanshi Dubey", role: "Director", photo: teamRef4 },
-    { name: "Puja Mahato", role: "Director", photo: teamRef1 },
+    { name: "Shaswat Tripathi", role: "President" },
+    { name: "Shubham Srivastav", role: "Vice President" },
+    { name: "Piush Praharaj", role: "Director" },
+    { name: "Priyanshi Dubey", role: "Director" },
+    { name: "Puja Mahato", role: "Director" },
   ],
   "SPONSORSHIP": [
-    { name: "Jayadeep Dash", role: "Lead", photo: teamRef1 },
-    { name: "Nishan Mishra", role: "Member", photo: teamRef2 },
-    { name: "Pranav Kumar", role: "Member", photo: teamRef3 },
-    { name: "S N Parshuram Swain", role: "Member", photo: teamRef4 },
-    { name: "Suryanshu Panigrahi", role: "Co-Lead", photo: teamRef1 },
-    { name: "Garima Mohapatra", role: "Member", photo: teamRef2 },
+    { name: "Jayadeep Dash", role: "Lead" },
+    { name: "Suryanshu Panigrahi", role: "Co-Lead" },
+    { name: "Nishan Mishra", role: "Member" },
+    { name: "Pranav Kumar", role: "Member" },
+    { name: "S N Parshuram Swain", role: "Member" },
+    { name: "Garima Mohapatra", role: "Member" },
   ],
   "EVENT MANAGEMENT": [
-    { name: "Prakhar Mishra", role: "Lead", photo: teamRef1 },
-    { name: "S N Parsuram Swain", role: "Co-Lead", photo: teamRef2 },
-    { name: "Shubham Kumar Jha", role: "Member", photo: teamRef3 },
-    { name: "Sampad Prasad Nayak", role: "Member", photo: teamRef4 },
-    { name: "Arjun Behera", role: "Member", photo: teamRef1 },
-    { name: "Ritik Patel", role: "Member", photo: teamRef2 },
-    { name: "Swati Mohanty", role: "Member", photo: teamRef3 },
-    { name: "Aman Sahoo", role: "Member", photo: teamRef4 },
+    { name: "Prakhar Mishra", role: "Lead" },
+    { name: "S N Parsuram Swain", role: "Co-Lead" },
+    { name: "Shubham Kumar Jha", role: "Member" },
+    { name: "Sampad Prasad Nayak", role: "Member" },
+    { name: "Arjun Behera", role: "Member" },
+    { name: "Ritik Patel", role: "Member" },
+    { name: "Swati Mohanty", role: "Member" },
+    { name: "Aman Sahoo", role: "Member" },
   ],
   "WEBSITE": [
-    { name: "Satyam Sinha", role: "Lead", photo: teamRef3 },
-    { name: "Md. Rizvi Hassan Ansari", role: "Member", photo: teamRef4 },
-    { name: "Bhimesh Kr Mehra", role: "Member", photo: teamRef1 },
-    { name: "Jasdeep Singh", role: "Member", photo: teamRef2 },
+    { name: "Satyam Sinha", role: "Lead" },
+    { name: "Md. Rizvi Hassan Ansari", role: "Member" },
+    { name: "Bhimesh Kr Mehra", role: "Member" },
+    { name: "Jasdeep Singh", role: "Member" },
   ],
   "GRAPHICS": [
-    { name: "Bhimesh Kr Mehra", role: "Lead", photo: teamRef1 },
-    { name: "Jayadeep Dash", role: "Member", photo: teamRef2 },
-    { name: "Rishabh Kumar", role: "Co-Lead", photo: teamRef3 },
-    { name: "Akankshya Swain", role: "Member", photo: teamRef4 },
-    { name: "Nitin Pradhan", role: "Member", photo: teamRef1 },
-    { name: "Prachi Mishra", role: "Member", photo: teamRef2 },
-    { name: "Saurav Nanda", role: "Member", photo: teamRef3 },
-    { name: "Divya Rout", role: "Member", photo: teamRef4 },
+    { name: "Bhimesh Kr Mehra", role: "Lead" },
+    { name: "Rishabh Kumar", role: "Co-Lead" },
+    { name: "Jayadeep Dash", role: "Member" },
+    { name: "Akankshya Swain", role: "Member" },
+    { name: "Nitin Pradhan", role: "Member" },
+    { name: "Prachi Mishra", role: "Member" },
+    { name: "Saurav Nanda", role: "Member" },
+    { name: "Divya Rout", role: "Member" },
   ],
   "DOCUMENTATION": [
-    { name: "Ananya Patel", role: "Lead", photo: teamRef4 },
-    { name: "Rohan Verma", role: "Co-Lead", photo: teamRef1 },
-    { name: "Sneha Kumari", role: "Member", photo: teamRef2 },
-    { name: "Aditya Mohanty", role: "Member", photo: teamRef3 },
-    { name: "Ritika Sahoo", role: "Member", photo: teamRef4 },
-    { name: "Harsh Panda", role: "Member", photo: teamRef1 },
-    { name: "Meera Das", role: "Member", photo: teamRef2 },
-    { name: "Vivek Jena", role: "Member", photo: teamRef3 },
+    { name: "Ananya Patel", role: "Documentation Head" },
+    { name: "Rohan Verma", role: "Co-Lead" },
+    { name: "Sneha Kumari", role: "Member" },
+    { name: "Aditya Mohanty", role: "Member" },
+    { name: "Ritika Sahoo", role: "Member" },
+    { name: "Harsh Panda", role: "Member" },
+    { name: "Meera Das", role: "Member" },
+    { name: "Vivek Jena", role: "Member" },
   ],
   "SOCIAL MEDIA": [
-    { name: "Ashlesa Mahapatra", role: "Lead", photo: teamRef2 },
-    { name: "Anubhav Poddar", role: "Co-Lead", photo: teamRef3 },
-    { name: "Aryan Singh", role: "Member", photo: teamRef4 },
-    { name: "Priya Sharma", role: "Member", photo: teamRef1 },
-    { name: "Soumya Dash", role: "Member", photo: teamRef2 },
-    { name: "Tanmay Rout", role: "Member", photo: teamRef3 },
-    { name: "Shruti Nayak", role: "Member", photo: teamRef4 },
-    { name: "Alok Behera", role: "Member", photo: teamRef1 },
+    { name: "Ashlesa Mahapatra", role: "Social Media Head" },
+    { name: "Anubhav Poddar", role: "Co-Lead" },
+    { name: "Aryan Singh", role: "Member" },
+    { name: "Priya Sharma", role: "Member" },
+    { name: "Soumya Dash", role: "Member" },
+    { name: "Tanmay Rout", role: "Member" },
+    { name: "Shruti Nayak", role: "Member" },
+    { name: "Alok Behera", role: "Member" },
   ],
   "PR & MARKETING": [
-    { name: "Vikram Rout", role: "Lead", photo: teamRef1 },
-    { name: "Shalini Das", role: "Co-Lead", photo: teamRef2 },
-    { name: "Rahul Behera", role: "Member", photo: teamRef3 },
-    { name: "Tanvi Gupta", role: "Member", photo: teamRef4 },
-    { name: "Akash Mohanty", role: "Member", photo: teamRef1 },
-    { name: "Neha Swain", role: "Member", photo: teamRef2 },
-    { name: "Debasis Sahoo", role: "Member", photo: teamRef3 },
-    { name: "Payal Jena", role: "Member", photo: teamRef4 },
+    { name: "Vikram Rout", role: "PR & Marketing Head" },
+    { name: "Shalini Das", role: "Co-Lead" },
+    { name: "Rahul Behera", role: "Member" },
+    { name: "Tanvi Gupta", role: "Member" },
+    { name: "Akash Mohanty", role: "Member" },
+    { name: "Neha Swain", role: "Member" },
+    { name: "Debasis Sahoo", role: "Member" },
+    { name: "Payal Jena", role: "Member" },
   ],
   "CREATIVE": [
-    { name: "Deepak Sahoo", role: "Lead", photo: teamRef3 },
-    { name: "Megha Tripathy", role: "Co-Lead", photo: teamRef4 },
-    { name: "Kunal Pradhan", role: "Member", photo: teamRef1 },
-    { name: "Isha Nayak", role: "Member", photo: teamRef2 },
-    { name: "Ranjan Mishra", role: "Member", photo: teamRef3 },
-    { name: "Sweta Panda", role: "Member", photo: teamRef4 },
-    { name: "Anil Das", role: "Member", photo: teamRef1 },
-    { name: "Gargi Mohanty", role: "Member", photo: teamRef2 },
+    { name: "Deepak Sahoo", role: "Creative Head" },
+    { name: "Megha Tripathy", role: "Co-Lead" },
+    { name: "Kunal Pradhan", role: "Member" },
+    { name: "Isha Nayak", role: "Member" },
+    { name: "Ranjan Mishra", role: "Member" },
+    { name: "Sweta Panda", role: "Member" },
+    { name: "Anil Das", role: "Member" },
+    { name: "Gargi Mohanty", role: "Member" },
   ],
   "MEDIA PRODUCTION": [
-    { name: "Soumya Ranjan", role: "Lead", photo: teamRef1 },
-    { name: "Ankita Mishra", role: "Co-Lead", photo: teamRef2 },
-    { name: "Siddharth Jena", role: "Member", photo: teamRef3 },
-    { name: "Riya Panda", role: "Member", photo: teamRef4 },
-    { name: "Bibhu Rout", role: "Member", photo: teamRef1 },
-    { name: "Pallavi Dash", role: "Member", photo: teamRef2 },
-    { name: "Manish Nayak", role: "Member", photo: teamRef3 },
-    { name: "Jyoti Sahoo", role: "Member", photo: teamRef4 },
+    { name: "Soumya Ranjan", role: "Media Production Head" },
+    { name: "Ankita Mishra", role: "Co-Lead" },
+    { name: "Siddharth Jena", role: "Member" },
+    { name: "Riya Panda", role: "Member" },
+    { name: "Bibhu Rout", role: "Member" },
+    { name: "Pallavi Dash", role: "Member" },
+    { name: "Manish Nayak", role: "Member" },
+    { name: "Jyoti Sahoo", role: "Member" },
   ],
 };
 
@@ -156,17 +150,15 @@ const Team = () => {
         <div className="w-16 h-0.5 bg-primary mx-auto mt-3" />
       </div>
 
-      {/* Team member cards */}
+      {/* Team member cards - no photos */}
       <section className="flex-1 px-4 md:px-12 pb-24">
         <div className="max-w-6xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-x-6 gap-y-10">
           {members.map((member, i) => (
             <div key={i} className="text-center">
-              <div className="aspect-[3/4] overflow-hidden rounded-sm mb-4 border border-border/20">
-                <img
-                  src={member.photo}
-                  alt={member.name}
-                  className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-500 bg-card"
-                />
+              <div className="aspect-[3/4] overflow-hidden rounded-sm mb-4 border border-border/20 bg-card flex items-center justify-center">
+                <span className="text-muted-foreground/30 font-display text-4xl">
+                  {member.name.split(" ").map(n => n[0]).join("")}
+                </span>
               </div>
               <p className="font-display text-foreground text-sm md:text-base leading-tight">
                 {member.name}
