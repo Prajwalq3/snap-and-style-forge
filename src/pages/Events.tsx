@@ -91,8 +91,8 @@ const Events = () => {
                       <img src={logo25} alt="25 Years" className="h-5 object-contain" />
                       <span className="text-foreground text-xs font-bold tracking-wider">SiliconTech</span>
                     </div>
-                    <div className="flex-1 rounded-xl bg-secondary flex items-center justify-center min-h-0">
-                      <span className="text-muted-foreground/30 font-display text-3xl">{event.name}</span>
+                    <div className="flex-1 rounded-xl overflow-hidden min-h-0">
+                      <img src={event.image} alt={event.name} className="w-full h-full object-cover" />
                     </div>
                   </div>
 
