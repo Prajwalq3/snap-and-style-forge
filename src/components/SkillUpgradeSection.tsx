@@ -14,7 +14,7 @@ const SkillUpgradeSection = () => {
           Elevate your expertise with hands-on workshops, mentorship, and real-world projects. Register now to unlock your potential.
         </p>
         <button
-          onClick={() => navigate("/skill-upgrade")}
+          onClick={() => navigate("/skill-upgrade/login")}
           className="inline-flex items-center gap-2 px-10 py-4 bg-primary text-primary-foreground font-mono text-lg rounded-lg shadow-lg hover:opacity-90 transition-all duration-300"
         >
           Join Skill Upgrade
