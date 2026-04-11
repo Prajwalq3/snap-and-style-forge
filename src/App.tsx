@@ -9,6 +9,9 @@ import Events from "./pages/Events.tsx";
 import Glimpses from "./pages/Glimpses.tsx";
 import Team from "./pages/Team.tsx";
 import SkillUpgrade from "./pages/SkillUpgrade.tsx";
+import SkillUpgradeLogin from "./pages/SkillUpgradeLogin.tsx";
+import SkillUpgradeSignup from "./pages/SkillUpgradeSignup.tsx";
+import SkillUpgradeDashboard from "./pages/SkillUpgradeDashboard.tsx";
 import NotFound from "./pages/NotFound.tsx";
 
 const queryClient = new QueryClient();
@@ -26,6 +29,9 @@ const App = () => (
           <Route path="/glimpses" element={<Glimpses />} />
           <Route path="/team" element={<Team />} />
           <Route path="/skill-upgrade" element={<SkillUpgrade />} />
+          <Route path="/skill-upgrade/login" element={<SkillUpgradeLogin />} />
+          <Route path="/skill-upgrade/signup" element={<SkillUpgradeSignup />} />
+          <Route path="/skill-upgrade/dashboard" element={<SkillUpgradeDashboard />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
