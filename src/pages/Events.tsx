@@ -109,7 +109,7 @@ const Events = () => {
                         Rulebook
                       </button>
                       <button
-                        onClick={() => navigate("/register")}
+                        onClick={() => navigate(`/register?event=${encodeURIComponent(event.name)}`)}
                         className="px-6 py-3 bg-primary text-primary-foreground font-mono text-sm font-bold rounded hover:bg-primary/90 transition-colors"
                       >
                         Register
