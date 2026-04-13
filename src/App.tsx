@@ -13,6 +13,7 @@ import SkillUpgrade from "./pages/SkillUpgrade.tsx";
 import SkillUpgradeLogin from "./pages/SkillUpgradeLogin.tsx";
 import SkillUpgradeSignup from "./pages/SkillUpgradeSignup.tsx";
 import SkillUpgradeDashboard from "./pages/SkillUpgradeDashboard.tsx";
+import Rulebook from "./pages/Rulebook.tsx";
 import NotFound from "./pages/NotFound.tsx";
 
 const queryClient = new QueryClient();
@@ -28,6 +29,7 @@ const App = () => (
           <Route path="/register" element={<Register />} />
           <Route path="/register/thankyou" element={<RegisterThankYou />} />
           <Route path="/events" element={<Events />} />
+          <Route path="/rulebook/:eventSlug" element={<Rulebook />} />
           <Route path="/glimpses" element={<Glimpses />} />
           <Route path="/team" element={<Team />} />
           <Route path="/skill-upgrade" element={<SkillUpgrade />} />
