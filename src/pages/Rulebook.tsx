@@ -26,6 +26,15 @@ import biddingwar5 from "@/assets/rulebook-biddingwar-5.png";
 import ideabuildup1 from "@/assets/rulebook-ideabuildup-1.png";
 import ideabuildup2 from "@/assets/rulebook-ideabuildup-2.png";
 import ideabuildup3 from "@/assets/rulebook-ideabuildup-3.png";
+import ideabuildup4 from "@/assets/rulebook-ideabuildup-4.png";
+import ideabuildup5 from "@/assets/rulebook-ideabuildup-5.png";
+import ideabuildup6 from "@/assets/rulebook-ideabuildup-6.png";
+
+import bannerexpo1 from "@/assets/rulebook-bannerexpo-1.png";
+import bannerexpo2 from "@/assets/rulebook-bannerexpo-2.png";
+import bannerexpo3 from "@/assets/rulebook-bannerexpo-3.png";
+import bannerexpo4 from "@/assets/rulebook-bannerexpo-4.png";
+import bannerexpo5 from "@/assets/rulebook-bannerexpo-5.png";
 
 const rulebooks: Record<string, { title: string; pages: string[] }> = {
   "stock-up": {
@@ -42,7 +51,11 @@ const rulebooks: Record<string, { title: string; pages: string[] }> = {
   },
   "idea-build-up": {
     title: "Idea Build-Up",
-    pages: [ideabuildup1, ideabuildup2, ideabuildup3],
+    pages: [ideabuildup1, ideabuildup2, ideabuildup3, ideabuildup4, ideabuildup5, ideabuildup6],
+  },
+  "banner-expo": {
+    title: "Banner Expo",
+    pages: [bannerexpo1, bannerexpo2, bannerexpo3, bannerexpo4, bannerexpo5],
   },
 };
 
