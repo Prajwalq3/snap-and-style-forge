@@ -14,6 +14,18 @@ import stockup7 from "@/assets/rulebook-stockup-7.png";
 import startuppitch1 from "@/assets/rulebook-startuppitch-1.png";
 import startuppitch2 from "@/assets/rulebook-startuppitch-2.png";
 import startuppitch3 from "@/assets/rulebook-startuppitch-3.png";
+import startuppitch4 from "@/assets/rulebook-startuppitch-4.png";
+import startuppitch5 from "@/assets/rulebook-startuppitch-5.png";
+
+import biddingwar1 from "@/assets/rulebook-biddingwar-1.png";
+import biddingwar2 from "@/assets/rulebook-biddingwar-2.png";
+import biddingwar3 from "@/assets/rulebook-biddingwar-3.png";
+import biddingwar4 from "@/assets/rulebook-biddingwar-4.png";
+import biddingwar5 from "@/assets/rulebook-biddingwar-5.png";
+
+import ideabuildup1 from "@/assets/rulebook-ideabuildup-1.png";
+import ideabuildup2 from "@/assets/rulebook-ideabuildup-2.png";
+import ideabuildup3 from "@/assets/rulebook-ideabuildup-3.png";
 
 const rulebooks: Record<string, { title: string; pages: string[] }> = {
   "stock-up": {
@@ -22,7 +34,15 @@ const rulebooks: Record<string, { title: string; pages: string[] }> = {
   },
   "startup-pitch": {
     title: "Startup Pitch",
-    pages: [startuppitch1, startuppitch2, startuppitch3],
+    pages: [startuppitch1, startuppitch2, startuppitch3, startuppitch4, startuppitch5],
+  },
+  "bidding-war": {
+    title: "Bidding War",
+    pages: [biddingwar1, biddingwar2, biddingwar3, biddingwar4, biddingwar5],
+  },
+  "idea-build-up": {
+    title: "Idea Build-Up",
+    pages: [ideabuildup1, ideabuildup2, ideabuildup3],
   },
 };
 
