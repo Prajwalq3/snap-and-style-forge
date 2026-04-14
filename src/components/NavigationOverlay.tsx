@@ -56,12 +56,12 @@ const NavigationOverlay = () => {
       {/* Fullscreen overlay */}
       {isOpen && (
         <div className="fixed inset-0 z-[100] animate-fade-in">
-          <div className="absolute inset-0 bg-primary-foreground" />
+          <div className="absolute inset-0 bg-white" />
 
           {/* Close button */}
           <button
             onClick={closeMenu}
-            className="absolute top-6 left-6 z-[110] font-mono text-sm tracking-widest text-foreground hover:text-primary transition-colors"
+            className="absolute top-6 left-6 z-[110] font-mono text-sm tracking-widest text-black hover:text-red-600 transition-colors"
             aria-label="Close menu"
           >
             close
@@ -73,7 +73,7 @@ const NavigationOverlay = () => {
               <button
                 key={link.label}
                 onClick={() => handleLinkClick(link)}
-                className="flex items-center gap-3 text-foreground font-mono text-3xl md:text-4xl tracking-wide hover:text-primary transition-all duration-300 animate-fade-in"
+                className="flex items-center gap-3 text-black font-mono text-3xl md:text-4xl tracking-wide hover:text-red-600 transition-all duration-300 animate-fade-in"
                 style={{ animationDelay: `${150 + i * 80}ms` }}
               >
                 {link.label}
@@ -86,7 +86,7 @@ const NavigationOverlay = () => {
                 closeMenu();
                 navigate("/register");
               }}
-              className="mt-4 px-12 py-4 bg-primary text-primary-foreground font-mono text-xl md:text-2xl rounded-lg shadow-lg hover:opacity-90 transition-all duration-300 animate-fade-in"
+              className="mt-4 px-12 py-4 bg-red-600 text-white font-mono text-xl md:text-2xl rounded-lg shadow-lg hover:bg-red-700 transition-all duration-300 animate-fade-in"
               style={{ animationDelay: "470ms" }}
             >
               Register

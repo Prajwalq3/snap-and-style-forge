@@ -8,6 +8,8 @@ const SkillUpgrade = () => {
   const navigate = useNavigate();
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
+  const [phone, setPhone] = useState("");
+  const [password, setPassword] = useState("");
   const [submitted, setSubmitted] = useState(false);
 
   const handleSubmit = (e: React.FormEvent) => {
@@ -71,6 +73,32 @@ const SkillUpgrade = () => {
                   onChange={(e) => setEmail(e.target.value)}
                   className="w-full bg-secondary border border-border rounded-lg px-4 py-3 text-foreground font-mono text-sm focus:outline-none focus:ring-2 focus:ring-primary"
                   placeholder="Enter your email"
+                />
+              </div>
+              <div>
+                <label className="block text-foreground font-mono text-sm mb-2">
+                  Phone Number
+                </label>
+                <input
+                  type="tel"
+                  required
+                  value={phone}
+                  onChange={(e) => setPhone(e.target.value)}
+                  className="w-full bg-secondary border border-border rounded-lg px-4 py-3 text-foreground font-mono text-sm focus:outline-none focus:ring-2 focus:ring-primary"
+                  placeholder="Enter your phone number"
+                />
+              </div>
+              <div>
+                <label className="block text-foreground font-mono text-sm mb-2">
+                  Password
+                </label>
+                <input
+                  type="password"
+                  required
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                  className="w-full bg-secondary border border-border rounded-lg px-4 py-3 text-foreground font-mono text-sm focus:outline-none focus:ring-2 focus:ring-primary"
+                  placeholder="Enter your password"
                 />
               </div>
               <button
